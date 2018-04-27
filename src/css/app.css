@@ -1,0 +1,101 @@
+/*
+    Document   : override
+    Created on : <date>
+    Author     : <author>
+    Description:
+        This is where any of your application specific styles should be included
+*/
+
+/* Hides the content area until we are ready to display after paddings have been adjusted. 
+    oj-complete is a marker class that is applied by the appController 
+    after adjusting the content area. */
+.oj-applayout-content:not(.oj-complete) {
+  visibility: hidden;
+}
+
+.demo-james-icon {
+  width: 80px;
+  height: 80px;
+  display: block;
+  padding-top: 24px;
+  padding-bottom: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.demo-profile-name {
+  font-size: 1.714rem;
+  text-align: center;
+  color: #ffffff;
+  margin: 0;
+  padding-bottom: 42px;
+}
+
+.demo-app-name {
+  padding-top: 40px;
+  color: #979899;
+}
+.mesas{
+  background-color: rgb(225, 225, 225);
+  padding: 0;
+  margin: 0; 
+  border-radius: 5px; 
+	margin: 10px 10px 15px 0;
+  font-size: 0px;
+  padding-left: 30px;
+}
+.btn-mesa{
+  margin: 25px 0 0 100px;
+  font-size: 1.300rem;
+}
+
+.platos{
+  margin-left: 20px;
+}
+.padding td{
+  padding-right:50px;
+}
+.categorias { 
+  background-color: #bbb; 
+  list-style-type: none; 
+  padding: 0; 
+  margin: 0; 
+  border-radius: 7px; 
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #d6d6d6), color-stop(0.4, #c0c0c0), color-stop(1,#a4a4a4)); 
+	margin: 10px 0 16px 0;
+	font-size: 0px;
+}
+.categorias li:hover { background-color: #ddd; }    
+.categorias li:first-child { border-left: none; border-radius: 7px 0 0 7px; }
+.categorias li { 
+  font-size: 16px; 
+  font-weight: bold; 
+  display: inline-block; 
+  padding: 0.5em 1.5em; 
+  cursor: pointer; 
+  color: #444; 
+  text-shadow: #f7f7f7 0 1px 1px; 
+  border-left: 1px solid #ddd; 
+  border-right: 1px solid #888; 
+}
+
+hr { 
+  border: 5px solid #8fa19e; 
+  border-radius: 300px ; 
+  height: 0px; 
+  text-align: center; 
+}
+.hr{
+  border: 1px dashed #8fa19e; 
+  margin-left: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+  .btn-mesa{
+    margin-left: 20px;
+    font-size: 1.000rem;
+  }
+  .padding td{
+    padding-right:10px;
+  }
+}

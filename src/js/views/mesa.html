@@ -1,0 +1,100 @@
+<!--
+ Copyright (c) 2014, 2018, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-applayout-page">
+  <div class="oj-applayout-fixed-top">
+      <!--
+       ** Oracle JET V4.2.0 hybrid mobile application header pattern.
+       ** Please see the Oracle JET Cookbook App Shell: Hybrid Mobile demos for
+       ** more information on how to use this pattern.
+    -->
+    <header role="banner" class="oj-hybrid-applayout-header" data-bind="ojModule: headerConfig">
+    </header>
+  </div>
+  <!-- This is where your main page content will be loaded -->
+  <div class="oj-applayout-content">
+    <div role="main" class="oj-hybrid-applayout-content">
+      <div class="oj-hybrid-padding">
+        <h1 data-bind="text: 'Mesa nº' + mesaActual().id"></h1>
+        <div id="botones" class="oj-row">
+          <oj-button on-click="[[cerrarMesa]]">
+            <span>Cerrar Mesa</span>
+          </oj-button>
+          <oj-button on-click="[[atras]]">
+            <span>Atrás</span>
+          </oj-button>
+        </div>
+
+        <div data-bind="if: platosConfirmados().length > 0">
+          <hr class="hr">
+          <h3>Platos confirmados</h3>
+          <div class="platos">
+            <table class="padding"> 
+              <tbody data-bind="foreach: platosConfirmados">
+                <tr>
+                  <td data-bind="text: nombre"></td>
+                  <td data-bind="text: unidades"></td>
+                </tr>
+              </tbody>
+            </table>
+            <h4>Precio total: <span data-bind="text: precio().toFixed(2)"></span></h4>
+          </div>
+        </div>
+
+        <div data-bind="if: platosComanda().length > 0">
+          <hr>
+          <h3>Comanda:</h3>
+          <div class="platos">
+            <table class="padding"> 
+              <tbody data-bind="foreach: platosComanda">
+                <tr>
+                  <td data-bind="text: nombre"></td>
+                  <td data-bind="text: unidades"></td>
+                  <td>
+                    <oj-button on-click="[[$parent.quit]]">
+                      <span>Quit</span>
+                    </oj-button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <hr class="hr">
+          <div class="oj-row" style="padding-left:20px">
+            <h4>Precio Total: <span data-bind="text: precioTotal().toFixed(2)"></span>€</h4>
+            <oj-button on-click="[[confirmarComanda]]">
+              <span>Confirmar Comanda</span>
+            </oj-button>
+          </div>
+          <hr>
+        </div>
+        <div>
+          <h3 data-bind="text: categoriaSeleccionada"></h3>
+          <h3 id="errores"></h3>
+          <div id="categorias">
+            <ul class="categorias" data-bind="foreach: categorias">
+              <li data-bind="text: nombre, click: $parent.seleccionarCategoria"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="platos">
+            <table class="padding"> 
+              <tbody data-bind="foreach: platosCategoria">
+                <tr>
+                  <td data-bind="text: nombre"></td>
+                  <td data-bind="text: precio +' €'"></td>
+                  <td>
+                    <oj-button on-click="[[$parent.añadirPlato]]">
+                      <span>Add</span>
+                    </oj-button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>

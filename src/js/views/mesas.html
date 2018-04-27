@@ -1,0 +1,47 @@
+<!--
+ Copyright (c) 2014, 2018, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-applayout-page">
+  <div class="oj-applayout-fixed-top">
+      <!--
+       ** Oracle JET V4.2.0 hybrid mobile application header pattern.
+       ** Please see the Oracle JET Cookbook App Shell: Hybrid Mobile demos for
+       ** more information on how to use this pattern.
+    -->
+    <header role="banner" class="oj-hybrid-applayout-header" data-bind="ojModule: headerConfig">
+    </header>
+  </div>
+  <!-- This is where your main page content will be loaded -->
+  <div class="oj-applayout-content">
+    <div role="main" class="oj-hybrid-applayout-content">
+      <div class="oj-hybrid-padding">
+        <h1>Mesas</h1>
+        <div>
+          <h3 data-bind="text: errores" style="color:red"></h3>
+          <oj-list-view id="listviewMesas" data="[[mesasYEstados]]" item.renderer="[[oj.KnockoutTemplateUtils.getRenderer('rendererMesas', true)]]" selection-mode="single"></oj-list-view>
+
+          <script type="text/html" id="rendererMesas">
+            <li class="mesas">
+              <table>
+                <tr>
+                  <td>
+                    <h3 data-bind="style:{'color':(estado=='Ocupada' ? 'red' : 'default')}, text: 'Mesa nº ' + id"></h3>
+                  </td>
+                  <td class="oj-flex">
+                    <oj-button class="btn-mesa"
+                               on-click="[[$parent.seleccionarMesa]]">
+                      <span data-bind="text: estado=='Libre' ? 'Abrir Mesa' : 'Ver Mesa'"></span>
+                    </oj-button>
+                  </td> 
+                  </br>                 
+                </tr>
+                <tr><td><h5 data-bind="style:{'color':(estado=='Ocupada' ? 'red' : 'default')}, text: 'Estado: ' + estado"></h5></td></tr>
+              </table>
+            </li>
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
