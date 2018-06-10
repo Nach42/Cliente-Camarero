@@ -59,6 +59,9 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojarraydatapro
             var respuesta = JSON.parse(request.responseText);
             if (respuesta.resultado=="OK"){
               recibirComanda();
+              for(var i=0; i<self.mesa.platos.length; i++){
+                self.mesa.platos[i].unidades = 0;
+              }
               self.mesa.platos = [] ;
               self.platosComanda(self.mesa.platos);
             }else{
